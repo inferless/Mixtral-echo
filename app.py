@@ -37,4 +37,4 @@ class InferlessPythonModel:
         return {'generated_result': result}
         
     def finalize(self):
-        pass
+        self.ft_model = None
