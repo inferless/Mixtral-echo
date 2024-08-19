@@ -25,12 +25,15 @@ class InferlessPythonModel:
         
     def infer(self, inputs):
         prompt = inputs["prompt"]
+        temperature = inputs["temperature"]
+        repetition_penalty = inputs["repetition_penalty"]
+        max_new_tokens = inputs["max_new_tokens"]
         model_input = self.tokenizer(prompt, return_tensors="pt").to("cuda")
         
         self.ft_model.eval()
         with torch.no_grad():
-            result = self.tokenizer.decode(self.ft_model.generate(**model_input, max_new_tokens=150, repetition_penalty=1.15)[0], skip_special_tokens=True)
-        
+            result = self.tokenizer.decode(self.ft_model.generate(**model_input,temperature=temperature, max_new_tokens=max_new_tokens, repetition_penalty=repetition_penalty)[0], skip_special_tokens=True)
+            
         return {'generated_result': result}
         
     def finalize(self):
