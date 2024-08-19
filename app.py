@@ -25,9 +25,9 @@ class InferlessPythonModel:
         
     def infer(self, inputs):
         prompt = inputs["prompt"]
-        temperature = inputs["temperature"]
-        repetition_penalty = inputs["repetition_penalty"]
-        max_new_tokens = inputs["max_new_tokens"]
+        temperature = inputs.get("temperature",0.7)
+        repetition_penalty = inputs.get("repetition_penalty",1.18)
+        max_new_tokens = inputs.get("max_new_tokens",128)
         model_input = self.tokenizer(prompt, return_tensors="pt").to("cuda")
         
         self.ft_model.eval()
