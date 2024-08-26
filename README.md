@@ -1,5 +1,5 @@
 # Model Template - Deploy Tryecho's Mixtral-echo using Inferless
-Tryecho/Mixtral-echo is a adapter for The Mixtral-8x7B. The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mistral-8x7B outperforms Llama 2 70B on most benchmarks.
+Tryecho/Mixtral-echo is a adapter for The Mixtral-8x7B. The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks.
 
 ### Fork the Repository
 Get started by forking the repository. You can do this by clicking on the fork button in the top right corner of the repository page.
