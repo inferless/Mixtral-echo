@@ -1,3 +1,6 @@
+import os
+os.environ["HF_HUB_ENABLE_HF_TRANSFER"]='1'
+from huggingface_hub import snapshot_download
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 from peft import PeftModel
@@ -6,6 +9,7 @@ class InferlessPythonModel:
     def initialize(self):
         base_model_id = "mistralai/Mixtral-8x7B-v0.1"
         peft_model_id = "Tryecho/Mixtral-echo"
+        snapshot_download(repo_id="mistralai/Mixtral-8x7B-v0.1",allow_patterns=["*.safetensors"])
         
         bnb_config = BitsAndBytesConfig(
             load_in_4bit=True,
